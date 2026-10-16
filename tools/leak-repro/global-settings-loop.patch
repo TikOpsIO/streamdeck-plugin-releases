@@ -1,0 +1,19 @@
+--- a/bin/plugin.js
++++ b/bin/plugin.js
+@@ -11251,6 +11251,7 @@
+ })();
+ 
+ streamDeck.logger.setLevel("debug");
++streamDeck.settings.useExperimentalMessageIdentifiers = true;
+ streamDeck.actions.registerAction(new ConnectAction());
+ streamDeck.actions.registerAction(new TriggerAction());
+ streamDeck.actions.registerAction(new SoundAction());
+@@ -11270,6 +11271,6 @@
+         streamDeck.logger.info("LiveState idle — not paired yet");
+     }
+ });
+-streamDeck.settings.onDidReceiveGlobalSettings(() => {
+-    void ensureLiveState();
++streamDeck.settings.onDidReceiveGlobalSettings((ev) => {
++    liveState.start(ev.settings);
+ });
