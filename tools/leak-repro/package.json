@@ -1,0 +1,8 @@
+{
+  "name": "tikops-streamdeck-leak-repro",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
